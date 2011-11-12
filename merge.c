@@ -26,7 +26,7 @@ void unione(int a[], int b[], int c[], int m, int n, int *p) {
     int i, j;
     i = j = 0;
 
-    while (i < m || j < n) {
+    while (i < m && j < n) {
         if (a[i] == b[j]) {
             c[*p] = a[i];
             i++;
@@ -45,6 +45,18 @@ void unione(int a[], int b[], int c[], int m, int n, int *p) {
             (*p)++;
         }
     }
+
+    while (i < m) {
+        c[*p] = a[i];
+        i++;
+        (*p)++;
+    }
+
+    while (j < n) {
+        c[*p] = b[j];
+        j++;
+        (*p)++;
+    }
 }
 
 /**
@@ -60,10 +72,10 @@ void unione(int a[], int b[], int c[], int m, int n, int *p) {
 void intersezione(int a[], int b[], int c[], int m, int n, int *p) {
     int i, j;
     i = j = 0;
-    
-    while(i<m || j<n){
-        if(a[i] == b[j]){
-            c[*p]=a[i];
+
+    while (i < m && j < n) {
+        if (a[i] == b[j]) {
+            c[*p] = a[i];
             i++;
             j++;
             (*p)++;
@@ -92,11 +104,11 @@ void diff(int a[], int b[], int c[], int m, int n, int *p) {
     int i, j;
     i = j = 0;
 
-    while (i < m || j < n) {
-        if(a[i] == b[j]){
+    while (i < m && j < n) {
+        if (a[i] == b[j]) {
             i++;
             j++;
-        }        
+        }
         while (a[i] < b[j] && i < m) {
             c[*p] = a[i];
             i++;
@@ -107,6 +119,12 @@ void diff(int a[], int b[], int c[], int m, int n, int *p) {
             j++;
         }
     }
+
+    while (i < m) {
+        c[*p] = a[i];
+        i++;
+        (*p)++;
+    }
 }
 
 /*
@@ -114,17 +132,17 @@ void diff(int a[], int b[], int c[], int m, int n, int *p) {
  */
 int main(int argc, char** argv) {
     int p;
-    p=0;
-    
-    int a[10] = {1,3,7,8,11,12,13,15,21,29};
-    int b[10] = {2,4,5,8,12,14,15,16,20,30};
+    p = 0;
+
+    int a[10] = {1, 3, 7, 8, 11, 12, 13, 15, 21, 32};
+    int b[10] = {2, 4, 5, 8, 12, 14, 15, 16, 20, 30};
     int c[20];
-    
-    unione(a, b, c, 10, 10, &p);
-    
+
+    diff(a, b, c, 10, 10, &p);
+
     printf("valore p %d\n", p);
     print(c, p);
-    
+
     return (EXIT_SUCCESS);
 }
 
