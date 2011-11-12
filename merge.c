@@ -15,11 +15,11 @@ void diff(int [], int [], int [], int, int, int *);
 /**
  * questo metodo fa l'unione insiemistica tra l'array a e l'array b
  * e lo inserisce nell'array c
- * @param a
- * @param b
- * @param c
- * @param m
- * @param n
+ * @param a primo array
+ * @param b secondo array
+ * @param c array unione tra il primo e il secondo array
+ * @param m lunghezza array a
+ * @param n lunghezza array b
  * @param p puntatore al numero di elementi inseriti in c
  */
 void unione(int a[], int b[], int c[], int m, int n, int *p) {
@@ -62,11 +62,11 @@ void unione(int a[], int b[], int c[], int m, int n, int *p) {
 /**
  * questo metodo fa l'intersezione insiemistica tra l'array a e l'array b
  * e lo inserisce nell'array c
- * @param a
- * @param b
- * @param c
- * @param m
- * @param n
+ * @param a primo array
+ * @param b secondo array
+ * @param c array intersezione tra il primo e il secondo array
+ * @param m lunghezza primo array
+ * @param n lunghezza secondo array
  * @param p puntatore al numero di elementi inseriti in c
  */
 void intersezione(int a[], int b[], int c[], int m, int n, int *p) {
@@ -93,11 +93,11 @@ void intersezione(int a[], int b[], int c[], int m, int n, int *p) {
 /**
  * questo metodo fa la differenza insiemistica tra l'array a e l'array b
  * e lo inserisce nell'array c
- * @param a
- * @param b
+ * @param a primo array
+ * @param b secondo array
  * @param c array da riempire con gli elementi risultanti dalla differenza
- * @param m
- * @param n
+ * @param m lunghezza prima array
+ * @param n lunghezza secondo array
  * @param p puntatore al numero di elementi inseriti nell'array c
  */
 void diff(int a[], int b[], int c[], int m, int n, int *p) {
